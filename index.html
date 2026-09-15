@@ -1,117 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support & Report</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{min-height:100vh;background:#f4f6f8;color:#222;transition:.3s}
-body.dark{background:#111827;color:#fff}
-header{text-align:center;padding:30px 15px 20px;position:relative}
-.logo-link{display:block;width:140px;height:140px;margin:auto;text-decoration:none}
-.logo{width:140px;height:140px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#2563eb;box-shadow:0 8px 25px rgba(0,0,0,.25);transition:.25s}
-.logo:hover{transform:scale(1.05)}
-.logo img{width:100%;height:100%;object-fit:cover;display:block}
-header h1{margin-top:15px;font-size:26px}
-.theme-btn{position:absolute;right:15px;top:20px;width:45px;height:45px;border:0;border-radius:50%;background:#222;color:#fff;font-size:20px;cursor:pointer}
-main{width:92%;max-width:650px;margin:auto;padding-bottom:30px}
-.section{background:#fff;margin-top:20px;padding:22px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:.3s}
-body.dark .section{background:#1f2937}
-.section h2{margin-bottom:15px;font-size:21px}
-label{display:block;margin:13px 0 6px;font-weight:bold}
-input,textarea{width:100%;padding:13px;border:1px solid #ccc;border-radius:10px;outline:0;font-size:15px}
-input:focus,textarea:focus{border-color:#2563eb}
-textarea{min-height:100px;resize:vertical}
-body.dark input,body.dark textarea{background:#374151;color:#fff;border-color:#4b5563}
-.btn{width:100%;margin-top:17px;padding:14px;border:0;border-radius:10px;background:#2563eb;color:#fff;font-size:16px;font-weight:bold;cursor:pointer}
-.btn:hover{opacity:.9}
-.whatsapp{background:#25D366;text-decoration:none;display:block;text-align:center}
-.family{text-align:center;margin-top:20px;padding:22px;border-radius:16px;background:#e5e7eb}
-body.dark .family{background:#374151}
-.coming{margin-top:8px;font-weight:bold;color:#f59e0b}
-footer{text-align:center;padding:20px;opacity:.7;font-size:13px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Uchiha Eye Family - Support Center</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f2f2f2;
+      color: #111;
+      transition: 0.3s ease;
+    }
+
+    body.dark {
+      background: #101010;
+      color: #fff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* DAY / NIGHT BUTTON */
+    .top {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 15px;
+    }
+
+    #modeBtn {
+      border: none;
+      border-radius: 25px;
+      padding: 10px 16px;
+      cursor: pointer;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    body.dark #modeBtn {
+      background: #fff;
+      color: #111;
+    }
+
+    /* LOGO */
+    .logo-box {
+      text-align: center;
+      margin: 15px 0 30px;
+    }
+
+    .logo-box img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 50%;
+      display: block;
+      margin: auto;
+    }
+
+    .logo-box h1 {
+      margin-top: 15px;
+      font-size: 27px;
+    }
+
+    /* UCHIHA EYE FAMILY */
+    .family-tag {
+      margin-top: 10px;
+      font-size: 19px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 22px;
+      border-radius: 25px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* SECTIONS */
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    body.dark .section {
+      background: #1d1d1d;
+      box-shadow: 0 5px 20px rgba(255,255,255,0.04);
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+      font-size: 21px;
+    }
+
+    /* INPUTS */
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      margin: 7px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 110px;
+      resize: vertical;
+    }
+
+    body.dark input,
+    body.dark textarea {
+      background: #292929;
+      color: #fff;
+      border-color: #555;
+    }
+
+    /* SUBMIT */
+    .submit {
+      width: 100%;
+      padding: 13px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    body.dark .submit {
+      background: #fff;
+      color: #111;
+    }
+
+    /* DATE & TIME */
+    .date-time {
+      margin-top: 10px;
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
+    /* MESSAGE */
+    #message {
+      text-align: center;
+      font-weight: bold;
+      margin: 15px 0;
+      min-height: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-bottom: 20px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<button class="theme-btn" id="themeBtn" aria-label="Toggle day and night mode">🌙</button>
-<img src="https://ibb.co/p6x1PGZW">
-<h1>Support & Report</h1>
-</header>
 
-<main>
-<section class="section">
-<h2>🛠️ Support OK</h2>
-<label for="roomId">Room ID</label>
-<input type="text" id="roomId" placeholder="Enter Room ID" autocomplete="off">
-<label for="colour">Colour</label>
-<input type="text" id="colour" placeholder="Enter Colour" autocomplete="off">
-<label for="supportDateTime">Date & Time</label>
-<input type="datetime-local" id="supportDateTime">
-<button class="btn" onclick="supportSubmit()">Submit Support</button>
-</section>
+  <div class="container">
 
-<section class="section">
-<h2>🚨 Report ID</h2>
-<label for="reportId">ID</label>
-<input type="text" id="reportId" placeholder="Enter ID" autocomplete="off">
-<label for="reason">Reason</label>
-<textarea id="reason" placeholder="Enter reason"></textarea>
-<button class="btn" onclick="reportSubmit()">Submit Report</button>
-</section>
+    <!-- DAY / NIGHT MODE -->
+    <div class="top">
+      <button id="modeBtn" onclick="toggleMode()">
+        🌙 Night Mode
+      </button>
+    </div>
 
-<section class="section">
-<h2>💬 Join Our WhatsApp Group</h2>
-<a class="btn whatsapp" href="YOUR_GROUP_LINK" target="_blank" rel="noopener noreferrer">Join WhatsApp Group</a>
-</section>
 
-<div class="family">
-<h2>👨‍👩‍👧 Family Tag</h2>
-<p class="coming">Coming Soon 🚀</p>
-</div>
-</main>
+    <!-- LOGO + FAMILY NAME -->
+    <div class="logo-box">
 
-<footer>© 2026 Support & Report</footer>
+      <a
+        href="https://ibb.co/p6x1PGZW"
+        target="_blank"
+      >
 
-<script>
-const themeBtn=document.getElementById("themeBtn");
-themeBtn.addEventListener("click",function(){
-document.body.classList.toggle("dark");
-if(document.body.classList.contains("dark")){
-themeBtn.textContent="☀️";localStorage.setItem("theme","dark");
-}else{
-themeBtn.textContent="🌙";localStorage.setItem("theme","light");
-}});
-if(localStorage.getItem("theme")==="dark"){
-document.body.classList.add("dark");themeBtn.textContent="☀️";
-}
+        <img
+          src="https://i.ibb.co/LD80Pb6Q/file-00000000de408211af94e5f8ab2197a4.png"
+          alt="Uchiha Eye Family Logo"
+        >
 
-function setCurrentDateTime(){
-const now=new Date();
-const localDateTime=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,16);
-document.getElementById("supportDateTime").value=localDateTime;
-}
-setCurrentDateTime();
+      </a>
 
-function supportSubmit(){
-const roomId=document.getElementById("roomId").value.trim();
-const colour=document.getElementById("colour").value.trim();
-const dateTime=document.getElementById("supportDateTime").value;
-if(!roomId||!colour||!dateTime){
-alert("Please enter Room ID, Colour and Date & Time.");return;
-}
-alert("Support submitted successfully!\n\nRoom ID: "+roomId+"\nColour: "+colour+"\nDate & Time: "+dateTime);
-}
+      <h1>Support Center</h1>
 
-function reportSubmit(){
-const id=document.getElementById("reportId").value.trim();
-const reason=document.getElementById("reason").value.trim();
-if(!id||!reason){
-alert("Please enter ID and Reason.");return;
-}
-alert("Report submitted successfully!\n\nID: "+id+"\nReason: "+reason);
-}
-</script>
+      <div class="family-tag">
+        ✇
+      </div>
+
+
+      <!-- WHATSAPP -->
+      <!-- Replace 91XXXXXXXXXX with your WhatsApp number -->
+
+      <a
+        class="whatsapp-btn"
+        href="https://wa.me/91XXXXXXXXXX"
+        target="_blank"
+      >
+        💬 Contact on WhatsApp
+      </a>
+
+    </div>
+
+
+    <!-- SUPPORT SECTION -->
+    <div class="section">
+
+      <h2>🛠️ Support</h2>
+
+      <input
+        type="text"
+        id="supportName"
+        placeholder="Enter your name"
+      >
+
+      <input
+        type="text"
+        id="supportId"
+        placeholder="Enter Support ID"
+      >
+
+      <textarea
+        id="supportMessage"
+        placeholder="Describe your problem..."
+      ></textarea>
+
+      <div
+        class="date-time"
+        id="supportDateTime"
+      ></div>
+
+      <button
+        class="submit"
+        onclick="sendSupport()"
+      >
+        Submit Support
+      </button>
+
+    </div>
+
+
+    <!-- REPORT ID SECTION -->
+    <div class="section">
+
+      <h2>🚨 Report ID</h2>
+
+      <input
+        type="text"
+        id="reportId"
+        placeholder="Enter ID to report"
+      >
+
+      <textarea
+        id="reportReason"
+        placeholder="Enter report reason..."
+      ></textarea>
+
+      <div
+        class="date-time"
+        id="reportDateTime"
+      ></div>
+
+      <button
+        class="submit"
+        onclick="sendReport()"
+      >
+        Submit Report
+      </button>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+    <div id="message"></div>
+
+
+    <!-- FOOTER -->
+    <footer>
+      © 2026 Uchiha Eye Family
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    /* DAY / NIGHT MODE */
+
+    function toggleMode() {
+
+      document.body.classList.toggle("dark");
+
+      const button =
+        document.getElementById("modeBtn");
+
+      if (
+        document.body.classList.contains("dark")
+      ) {
+
+        button.innerHTML = "☀️ Day Mode";
+
+      } else {
+
+        button.innerHTML = "🌙 Night Mode";
+
+      }
+    }
+
+
+    /* DATE & TIME */
+
+    function updateDateTime() {
+
+      const now = new Date();
+
+      const dateTime =
+        now.toLocaleDateString() +
+        " • " +
+        now.toLocaleTimeString();
+
+      document.getElementById(
+        "supportDateTime"
+      ).innerHTML =
+        "Date & Time: " + dateTime;
+
+      document.getElementById(
+        "reportDateTime"
+      ).innerHTML =
+        "Date & Time: " + dateTime;
+    }
+
+    updateDateTime();
+
+    setInterval(
+      updateDateTime,
+      1000
+    );
+
+
+    /* SUPPORT */
+
+    function sendSupport() {
+
+      const name =
+        document.getElementById(
+          "supportName"
+        ).value.trim();
+
+      const id =
+        document.getElementById(
+          "supportId"
+        ).value.trim();
+
+      const message =
+        document.getElementById(
+          "supportMessage"
+        ).value.trim();
+
+      if (
+        name === "" ||
+        id === "" ||
+        message === ""
+      ) {
+
+        showMessage(
+          "⚠️ Please fill all Support fields."
+        );
+
+        return;
+      }
+
+      showMessage(
+        "✅ Support request submitted!"
+      );
+
+      document.getElementById(
+        "supportName"
+      ).value = "";
+
+      document.getElementById(
+        "supportId"
+      ).value = "";
+
+      document.getElementById(
+        "supportMessage"
+      ).value = "";
+    }
+
+
+    /* REPORT */
+
+    function sendReport() {
+
+      const id =
+        document.getElementById(
+          "reportId"
+        ).value.trim();
+
+      const reason =
+        document.getElementById(
+          "reportReason"
+        ).value.trim();
+
+      if (
+        id === "" ||
+        reason === ""
+      ) {
+
+        showMessage(
+          "⚠️ Please fill all Report fields."
+        );
+
+        return;
+      }
+
+      showMessage(
+        "✅ Report submitted successfully!"
+      );
+
+      document.getElementById(
+        "reportId"
+      ).value = "";
+
+      document.getElementById(
+        "reportReason"
+      ).value = "";
+    }
+
+
+    /* MESSAGE */
+
+    function showMessage(text) {
+
+      const message =
+        document.getElementById(
+          "message"
+        );
+
+      message.innerHTML = text;
+
+      setTimeout(function() {
+
+        message.innerHTML = "";
+
+      }, 3000);
+    }
+
+  </script>
+
 </body>
 </html>
